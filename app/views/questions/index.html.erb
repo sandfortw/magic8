@@ -1,16 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .form-style {
+      background-color: rgba(128, 128, 128, 0.5); /* Transparent Grey */
+      border-radius: 10px; /* Rounded corners */
+      padding: 20px;
+    }
+    
+    .response-style {
+      position: relative;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+    }
+    
+    .response-style::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-top-color: #ffffff;
+      border-bottom: 0;
+      margin-left: -20px;
+      margin-bottom: -20px;
+    }
+  </style>
+</head>
+<body>
+
 <div id="body">
-<h1> Turing Mystical Fortune Teller</h1>
+  <h1> Turing Mystical Fortune Teller</h1>
 
-<div id="response">
-<%= @response if @response %>
-</div>
-
-
-<div id="form">
-<%=form_with url: "/", method: :get, local: true do |f|%>
-  <%=f.label :Enter_a_question_if_you_dare%>
-  <%=f.text_field :question%>
-  <%=f.submit "Submit" %>
+<% if @response %>
+  <div id="response" class="response-style">
+    <%= @response %>
+  </div>
 <% end %>
-<div>
+
+  <div id="form" class="form-style">
+    <%=form_with url: "/", method: :get, local: true do |f|%>
+      <%=f.label :Enter_a_question_if_you_dare%>
+      <%=f.text_field :question%>
+      <%=f.submit "Submit" %>
+    <% end %>
+  </div>
 </div>
+
+</body>
+</html>
