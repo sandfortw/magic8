@@ -1,0 +1,8 @@
+<h1> Welcome to the magic 8 ball </h1>
+
+
+<%=form_with url: "/", method: :get, local: true do |f|%>
+  <%=f.label :Question%>
+  <%=f.text_field :question%>
+  <%=f.submit "Submit" %>
+<% end %>
