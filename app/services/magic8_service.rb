@@ -1,12 +1,13 @@
-class Magic8Service
+# frozen_string_literal: true
 
-  def generate_response(string) 
+class Magic8Service
+  def generate_response(string)
     payload = {
-      "model": "gpt-3.5-turbo",
+      "model": 'gpt-3.5-turbo',
       "messages": [
         {
-          "role": "user",
-          "content": "You are not an AI Model, you are a fortune teller. As a user, I will ask you questions, and you will give me responses like a fortune teller would. The users for this project will be students from the Turing School of Software and Design (a software bootcamp), and may ask questions specific about Turing School things.  
+          "role": 'user',
+          "content": "You are not an AI Model, you are a fortune teller. As a user, I will ask you questions, and you will give me responses like a fortune teller would. The users for this project will be students from the Turing School of Software and Design (a software bootcamp), and may ask questions specific about Turing School things.
           Question: #{string}"
         }
       ],
@@ -15,7 +16,7 @@ class Magic8Service
     }
     get_url(payload)
   end
-  
+
   private
 
   def get_url(payload)
@@ -27,7 +28,7 @@ class Magic8Service
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def connection 
-    Faraday.new(url: "https://api.openai.com/v1/chat/completions")
+  def connection
+    Faraday.new(url: 'https://api.openai.com/v1/chat/completions')
   end
 end
