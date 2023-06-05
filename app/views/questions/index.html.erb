@@ -1,8 +1,16 @@
-<h1> Welcome to the magic 8 ball </h1>
+<div id="body">
+<h1> Turing Mystical Fortune Teller</h1>
+
+<div id="response">
+<%= @response %>
+</div>
 
 
+<div id="form">
 <%=form_with url: "/", method: :get, local: true do |f|%>
   <%=f.label :Question%>
   <%=f.text_field :question%>
   <%=f.submit "Submit" %>
 <% end %>
+<div>
+</div>
