@@ -25,7 +25,8 @@ class Magic8Service
       req.headers['Authorization'] = "Bearer #{ENV['Open_AI']}"
       req.body = payload.to_json
     end
-    JSON.parse(response.body, symbolize_names: true)
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:choices].first[:message][:content]
   end
 
   def connection

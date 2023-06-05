@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   def index
-    # params[:question]
+    question = params[:question]
+    @response = Magic8Facade.new.generate_response(question)
+  rescue StandardError
+    @response = 'Jeff the great did not like that, try again!'
   end
 end
