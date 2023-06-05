@@ -64,3 +64,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'figaro'
+gem 'pry'
+gem 'faraday'
